@@ -14,6 +14,7 @@ function init(){
   setupModeButtons();
   setupSquares();
   reset();
+  modeButtons[1].classList.add("selected");
 }
 
 function setupModeButtons(){
