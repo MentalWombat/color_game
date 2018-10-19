@@ -8,6 +8,16 @@ var messageDisplay = document.querySelector("#message");
 var resetButton = document.querySelector("#reset");
 var modeButtons = document.querySelectorAll(".mode");
 
+var sclick = new Howl({
+  src: ['sounds/click.mp3', 'sounds/click.wav']
+});
+
+var fclick = new Howl({
+  src: ['sounds/fin.mp3', 'sounds/fin.wav'],
+});
+
+var clickSound = true;
+
 init();
 
 function init(){
@@ -20,7 +30,7 @@ function init(){
 function setupModeButtons(){
   for(var i = 0; i < modeButtons.length; i++){
     modeButtons[i].addEventListener("click", function(){
-      for(var i = 0; i <modeButtons.length; i++){
+      for(var i = 0; i < modeButtons.length; i++){
         modeButtons[i].classList.remove("selected");
       }
       this.classList.add("selected");
@@ -41,11 +51,16 @@ function setupSquares(){
     squares[i].addEventListener("click", function(){
       var clickedColor = this.style.background;
       if(clickedColor === pickedColor){
+        if(clickSound){
+          fclick.play();
+        }
         messageDisplay.textContent = "Correct!";
         resetButton.textContent = "Play Again?";
         changeColors(clickedColor);
         colorDisplay.style.background = clickedColor;
+        clickSound = false;
       } else {
+        sclick.play();
         this.style.background = bgColor;
         messageDisplay.textContent = "Try Again";
         message.classList.add("fade");
@@ -70,6 +85,7 @@ function reset(){
     }
   }
   colorDisplay.style.background = bgColor;
+  clickSound = true;
 }
 
 resetButton.addEventListener("click", function(){
