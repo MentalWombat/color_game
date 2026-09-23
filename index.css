@@ -1,5 +1,5 @@
 body {
-	background-color: #232323;
+  background-color: #232323;
   font-family: "Montserrat", "Avenir";
   margin: 0;
 }
@@ -38,7 +38,7 @@ button {
   letter-spacing: 1px;
   outline: none;
   text-transform: uppercase;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 button:hover {
@@ -47,13 +47,17 @@ button:hover {
 }
 
 @keyframes fade {
-  from {opacity: 0}
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .fade {
   animation-name: fade;
-  animation-duration: .6s;
+  animation-duration: 0.6s;
 }
 
 #message {
@@ -64,17 +68,17 @@ button:hover {
 }
 
 #container {
-	margin: 0 auto;
-	max-width: 600px;
+  margin: 0 auto;
+  max-width: 600px;
 }
 
 .square {
   border-radius: 50%;
-	float: left;
-	margin: 1.66%;
-	padding-bottom: 30%;
-  transition: background .6s;
-	width: 30%;
+  float: left;
+  margin: 1.66%;
+  padding-bottom: 30%;
+  transition: background 0.6s;
+  width: 30%;
 }
 
 .selected {
