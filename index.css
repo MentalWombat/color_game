@@ -107,6 +107,17 @@ button:not(:disabled) {
   color: var(--secondary-color);
 }
 
+.sound {
+  background-color: transparent;
+  border: none;
+  border-radius: 21px;
+  color: var(--primary-color);
+  font-size: 24px;
+  padding: 6px;
+  position: absolute;
+  right: 4px;
+}
+
 .reset {
   background-color: var(--primary-color);
   border: 1px solid var(--primary-color);
@@ -136,7 +147,8 @@ button:not(:disabled) {
   }
 
   .mode:hover,
-  .invert:hover {
+  .invert:hover,
+  .sound:hover {
     background-color: var(--primary-color);
     color: var(--secondary-color);
   }

@@ -3,9 +3,12 @@ var colors = [];
 var mysteryColor;
 var modeButtons = document.querySelectorAll(".mode");
 var colorDisplay = document.getElementById("colorDisplay");
+var soundButton = document.getElementById("sound");
 var messageDisplay = document.getElementById("message");
 var items = document.querySelectorAll(".item");
 var resetButton = document.getElementById("reset");
+
+var isMuted = false;
 
 var itemClick = new Howl({
   src: ["sounds/click.mp3", "sounds/click.wav"],
@@ -14,6 +17,16 @@ var itemClick = new Howl({
 var finalClick = new Howl({
   src: ["sounds/fin.mp3", "sounds/fin.wav"],
 });
+
+function toggleSound() {
+  if (isMuted) {
+    soundButton.innerHTML = "&#128266;";
+  } else {
+    soundButton.innerHTML = "&#128263;";
+  }
+  isMuted = !isMuted;
+  Howler.mute(isMuted);
+}
 
 function updateItems(color) {
   for (var i = 0; i < items.length; i++) {
@@ -100,6 +113,7 @@ function init() {
   for (var i = 0; i < modeButtons.length; i++) {
     modeButtons[i].addEventListener("click", setMode);
   }
+  soundButton.addEventListener("click", toggleSound);
   for (var i = 0; i < items.length; i++) {
     items[i].addEventListener("click", clickItem);
   }
