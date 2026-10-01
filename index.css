@@ -54,7 +54,6 @@ main {
   color: var(--primary-color);
   font-size: 20px;
   padding: 12px 20px;
-
 }
 
 @supports (color: contrast-color(red)) {
@@ -102,14 +101,10 @@ button:not(:disabled) {
   font-size: 14px;
 }
 
-.mode:hover,
 .selected {
   background-color: var(--primary-color);
-  color: var(--secondary-color);
-}
-
-.selected {
   border: 1px solid var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .reset {
@@ -130,20 +125,21 @@ button:not(:disabled) {
   }
 }
 
-@media (hover: hover) {
-  .reset:hover {
-    border: 1px solid var(--secondary-color);
-  }
-}
-
 .invert {
   background-color: var(--secondary-color);
   color: var(--primary-color);
 }
 
-.invert:hover {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+@media (hover: hover) {
+  .reset:hover {
+    border: 1px solid var(--secondary-color);
+  }
+
+  .mode:hover,
+  .invert:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+  }
 }
 
 h1 {
