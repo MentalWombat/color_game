@@ -52,9 +52,15 @@ main {
 .display {
   background-color: var(--mystery-color);
   color: var(--primary-color);
-  color: contrast-color(var(--mystery-color));
   font-size: 20px;
   padding: 12px 20px;
+
+}
+
+@supports (color: contrast-color(red)) {
+  .display {
+    color: contrast-color(var(--mystery-color));
+  }
 }
 
 ul {
